@@ -1,3 +1,3 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :kra_pin , 
+  # attributes :, 
 end

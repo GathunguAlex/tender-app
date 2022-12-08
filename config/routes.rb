@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
  #resource user
 
-  get "/login", to "sessions#login"
-  post "/signup", to "user#create"
-  delete "/logout", to "sessions#logout"
+  get "/login", to: "sessions#login"
+  post "/signup", to: "users#create"
+  delete "/logout", to: "sessions#logout"
   get "/auth",to: "user#show"
   get "/tenders", to: "user#index"
   get "/tenders/id", to: "user#tenders"

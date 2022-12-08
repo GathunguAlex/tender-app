@@ -5,9 +5,9 @@ class UserController < ApplicationController
      skip_before_action :verify_authenticity_token
 
      def login
-    user = User.find_by(username: params[:kra_pin])
+    user = User.find_by(username: params[:username])
     if user&.authenticate(params[:password])
-        session[:username]= user.kra_pin
+        session[:username]= user.username
       render json: user, status: :created
     else
       render json: { error: "Please register" }, status: :unauthorized
