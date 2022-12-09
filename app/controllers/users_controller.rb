@@ -4,16 +4,6 @@ class UserController < ApplicationController
      skip_before_action :authorized, only: :create
      skip_before_action :verify_authenticity_token
 
-     def login
-    user = User.find_by(username: params[:username])
-    if user&.authenticate(params[:password])
-        session[:username]= user.username
-      render json: user, status: :created
-    else
-      render json: { error: "Please register" }, status: :unauthorized
-    end
-  end
-
   def logout
   session.delete :username
   head :no_content
@@ -25,7 +15,7 @@ class UserController < ApplicationController
   end
 
   def show
-    current_user = User.find(session[:kra_pin])
+    current_user = User.find(session[:username])
     render json: current_user 
 end
 
@@ -47,6 +37,11 @@ end
 
 
 private
+
+def render_unprocessable_entity(invalid)
+    render json:{error: invalid.record.erros}, status: :unprocessable_entry
+
+end
 
 def user_params
     params.permit(:username, :password) 

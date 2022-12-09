@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  #resources :tenders, only: [:index, :show, :create, :update, :destroy ]
+resources :user, only:[:show, :create]
+  resources :tenders, only: [:index, :show, :create, :update, :destroy ]
   #first step is setting up the route next step is to controllers
   #to make sure we do not have unused routes we add only like in line 2 
   get "/tenders", to: "tenders#index"
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
 
  #resource user
 
-  get "/login", to: "sessions#login"
+  get "/login", to: "sessions#create"
   post "/signup", to: "users#create"
   delete "/logout", to: "sessions#logout"
   get "/auth",to: "user#show"

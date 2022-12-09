@@ -1,3 +1,3 @@
 class TenderSerializer < ActiveModel::Serializer
-  attributes :tendername, :tendernumber
+  attributes :index, :show
 end
