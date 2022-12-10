@@ -15,7 +15,7 @@ gem "sqlite3", "~> 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-#gem 'bycript', '~> 3.1.7 '
+gem "bcrypt"
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

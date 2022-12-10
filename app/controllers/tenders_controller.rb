@@ -8,11 +8,12 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
 def index
     tenders = Tender.all
-    render json: tenders #only: [:id,:tendername]
+    render json: tenders
 end
 
 def show
     #find tender using ID
+
     tenders = find_tender
     
 #id and name limit what is sent to the front end
@@ -42,7 +43,7 @@ def destroy
 end
 
 private
- #This private method works with >wrap_parameters format:[] to limit what a user can input
+ 
 def tenders_params
     params.permit(:tendername, :tendernumber)
 end 

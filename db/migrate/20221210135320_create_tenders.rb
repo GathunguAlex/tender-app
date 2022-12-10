@@ -3,7 +3,7 @@ class CreateTenders < ActiveRecord::Migration[7.0]
     create_table :tenders do |t|
       t.string :tendername
       t.integer :tendernumber
-
+      t.integer :users_id
       t.timestamps
     end
   end

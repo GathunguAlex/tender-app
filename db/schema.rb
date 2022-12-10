@@ -10,22 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_08_232108) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_10_135320) do
   create_table "tenders", force: :cascade do |t|
     t.string "tendername"
     t.integer "tendernumber"
+    t.integer "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "foreign_key"
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "kra_pin"
-    t.integer "cellphone_number"
-    t.integer "tenders_id"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
   end
 
 end
