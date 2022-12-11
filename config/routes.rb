@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 # resources :index
 resources :tenders
-resources :users
+resources :users, :show
 
 post "/signup", to: "users#create"
-get "/login", to: "sessions#create"
+post "/login", to: "sessions#create"
 get "/tenders/id", to: "tenders#show"
 get "/me", to: "users#show"
 get "/tenders", to: "tenders#index"

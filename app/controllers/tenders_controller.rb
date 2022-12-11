@@ -2,7 +2,7 @@ class TendersController < ApplicationController
     
 #helps prevent risks that comes with mass assignment of create method
 wrap_parameters format:[]
-skip_before_action :verify_authenticity_token
+# skip_before_action :verify_authenticity_token
 #when we want to handle response in the same way, this case activerecord not found from find
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
